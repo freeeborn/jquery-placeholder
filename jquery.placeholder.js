@@ -74,6 +74,13 @@
 					$inputs.each(setPlaceholder);
 				}, 10);
 			});
+			$(document).delegate('form', 'reset.placeholder', function() {
+				// Clear the placeholder attributes when values are reset to restore them later
+				var $inputs = $('.placeholder', this).each(clearPlaceholder);
+				setTimeout(function() {
+					$inputs.each(setPlaceholder);
+				}, 10);
+			});
 		});
 
 		// Clear placeholder values upon page reload
